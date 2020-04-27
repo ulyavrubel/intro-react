@@ -54,6 +54,7 @@ body {
 .pet img {
   width: 100px;
   min-height: 100px;
+  object-fit: cover;
 }
 
 .info {
@@ -148,6 +149,7 @@ header {
 .carousel > img {
   max-width: 45%;
   max-height: 400px;
+  object-fit: cover;
 }
 
 .carousel-smaller {
@@ -162,6 +164,7 @@ header {
   margin: 15px;
   cursor: pointer;
   border: 2px solid #333;
+  object-fit: cover;
 }
 
 .carousel-smaller > img.active {

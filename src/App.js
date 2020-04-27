@@ -3,6 +3,7 @@ import SearchParams from "./SearchParams";
 import { Router, Link } from "@reach/router";
 import Details from "./Details";
 import ThemeContext from "./ThemeContext";
+import NotFound from "./NotFound";
 
 const App = () => {
   const theme = useState("darkblue");
@@ -14,6 +15,7 @@ const App = () => {
         </header>
 
         <Router>
+          <NotFound default />
           <SearchParams path="/" />
           <Details path="/details/:id" />
         </Router>

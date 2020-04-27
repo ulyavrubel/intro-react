@@ -3,7 +3,7 @@ import pet from "@frontendmasters/pet";
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary";
 import ThemeContext from "./ThemeContext";
-import { navigate } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import Modal from "./Modal";
 
 class Details extends React.Component {
@@ -24,10 +24,13 @@ class Details extends React.Component {
           media: animal.photos,
           breed: animal.breeds.primary,
           loading: false,
-          url: animal.url
+          url: animal.url,
         });
       })
-      .catch(err => this.setState({ error: err }));
+      .catch((err) => {
+        console.log(err);
+        return this.setState({ error: "error" });
+      });
   }
 
   toggleModal = () => this.setState({ showModal: !this.state.showModal });
@@ -38,6 +41,15 @@ class Details extends React.Component {
       return <h1>loading...</h1>;
     }
 
+    if (this.state.error === "error") {
+      return (
+        <h1>
+          There was an error with this listing. <Link to="/">Click here</Link>{" "}
+          to back to the home page.
+        </h1>
+      );
+    }
+
     const {
       animal,
       breed,
@@ -45,8 +57,7 @@ class Details extends React.Component {
       description,
       media,
       name,
-      url,
-      showModal
+      showModal,
     } = this.state;
 
     return (

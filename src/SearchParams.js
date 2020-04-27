@@ -28,6 +28,7 @@ const SearchParams = () => {
       const breedString = breeds.map(({ name }) => name);
       updateBreeds(breedString);
     }, console.error);
+    // eslint-disable-next-line
   }, [animal]);
 
   return (
